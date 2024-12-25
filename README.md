@@ -65,4 +65,4 @@ Link of dataset:
 # Author
     Muhammet Ali Aykanat
 
-<a href=”https://www.linkedin.com/in/muhammet-ali-aykanat/"><img align=”left” src=”https://github.com/MAAykanat/MAAykanat/img/linkedin.svg" alt=”MAA | LinkedIn” width=”21px”/></a>
+[![website](https://github.com/MAAykanat/MAAykanat/img/linkedin.svg)](https://www.linkedin.com/in/muhammet-ali-aykanat/)
