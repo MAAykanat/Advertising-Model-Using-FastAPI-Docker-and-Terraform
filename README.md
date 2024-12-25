@@ -64,5 +64,5 @@ Link of dataset:
 
 # Author
     Muhammet Ali Aykanat
-    
-    [![website](./img/linkedin.svg)](https://www.linkedin.com/in/muhammet-ali-aykanat/)
+
+[![website](./img/linkedin.svg)](https://www.linkedin.com/in/muhammet-ali-aykanat/)
