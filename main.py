@@ -3,7 +3,7 @@ import joblib
 from models import Advertising
 import numpy as np
 
-advertising_model = joblib.load('saved_models\\advertising_model.pkl')
+advertising_model = joblib.load('saved_models/advertising_model.pkl')
 
 app = FastAPI()
 
@@ -21,7 +21,7 @@ def make_prediction(model, request):
 def read_root():
     return {"Hello": "World"}
 
-@app.get("/predict/advertising")
+@app.post("/predict/advertising")
 def predict_sales(request:Advertising):
     prediction = make_prediction(advertising_model, request)
     return {"prediction": prediction}
