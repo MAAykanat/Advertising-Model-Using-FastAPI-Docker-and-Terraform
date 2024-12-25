@@ -3,25 +3,31 @@ import joblib
 from models import Advertising
 import numpy as np
 
-advertising_model = joblib.load('saved_models/advertising_model.pkl')
+estimator_advertising_loaded = joblib.load('saved_models\\advertising_model.pkl')
 
 app = FastAPI()
 
-def make_prediction(model, request):
-    tv = request.TV
-    radio = request.Radio
-    newspaper = request.Newspaper
+def make_advertising_prediction(model, request):
+    # parse input from request
+    TV = request["TV"]
+    Radio = request['Radio']
+    Newspaper = request['Newspaper']
 
-    single_input=np.array([tv, radio, newspaper]).reshape(1, -1)
-    
-    prediction = model.predict([single_input])
+    # Make an input vector
+    advertising = [[TV, Radio, Newspaper]]
+
+    # Predict
+    prediction = model.predict(advertising)
+
     return prediction[0]
 
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
 
-@app.post("/predict/advertising")
-def predict_sales(request:Advertising):
-    prediction = make_prediction(advertising_model, request)
-    return {"prediction": prediction}
+# Advertising Prediction endpoint
+@app.post("/prediction/advertising")
+def predict_iris(request: Advertising):
+    prediction = make_advertising_prediction(estimator_advertising_loaded, request.dict())
+    return prediction
+

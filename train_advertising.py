@@ -18,6 +18,9 @@ print(data.head())
 y = data['Sales']
 X = data.drop('Sales', axis=1) 
 
+print(X.head())
+print(y.head())
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
 pipeline = Pipeline([('scaler', StandardScaler()), ('classifier', RandomForestRegressor(n_estimators=500))])
@@ -31,7 +34,7 @@ print('ROC_AUC:', r2_score(y_test, y_pred))
 
 # Raw Prediction Example --> First row of the dataset
 single_input = np.array([230.1, 37.8, 69.2]).reshape(1, -1)
-
+print('Input:', single_input)
 print('Prediction:', pipeline.predict(single_input))
 
 # Save the model
